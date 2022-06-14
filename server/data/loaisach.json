@@ -1,0 +1,37 @@
+﻿[
+
+  {
+    "ma_loai": 1,
+    "ten_loai": "Tiểu thuyết hư cấu"
+  },
+
+  {
+    "ma_loai": 2,
+    "ten_loai": "Phiêu lưu / Kịch tính"
+  },
+
+  {
+    "ma_loai": 3,
+    "ten_loai": "Khoa học viễn tưởng"
+  },
+
+  {
+    "ma_loai": 4,
+    "ten_loai": "Lãng mạn"
+  },
+
+  {
+    "ma_loai": 5,
+    "ten_loai": "Kinh dị"
+  },
+  
+  {
+    "ma_loai": 6,
+    "ten_loai": "Sách trẻ em"
+  },
+
+  {
+    "ma_loai": 7,
+    "ten_loai": "Tự truyện / Hồi ký"
+  }
+]

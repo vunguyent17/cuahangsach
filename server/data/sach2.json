@@ -1,0 +1,295 @@
+[{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2b6"
+  },
+  "isbn": "0-332-3233-4",
+  "ma_sach": "STK001",
+  "ten_sach": "The Hobbit",
+  "tac_gia": "J.R.R Tolken",
+  "nha_xuat_ban_id": "SUP001",
+  "don_gia": 351900,
+  "nam_xuat_ban": 1937,
+  "nha_xuat_ban": "Allen & Unwin",
+  "ma_loai": 1,
+  "hinh": "img-01.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2b7"
+  },
+  "isbn": "0-3113-443-4",
+  "ma_sach": "STK002",
+  "ten_sach": "The Lord of the Rings : Fellowship of the ring",
+  "tac_gia": "J.R.R Tolken",
+  "nha_xuat_ban_id": "SUP002",
+  "don_gia": 558900,
+  "nam_xuat_ban": 2000,
+  "nha_xuat_ban": "Allen & Unwin",
+  "ma_loai": 1,
+  "hinh": "img-02.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2b8"
+  },
+  "isbn": "0-113-473-8",
+  "ma_sach": "STK003",
+  "ten_sach": "The Lord of the Rings : The two towers",
+  "tac_gia": "J.R.R Tolken",
+  "nha_xuat_ban_id": "SUP003",
+  "don_gia": 434700,
+  "nam_xuat_ban": 2006,
+  "nha_xuat_ban": "Allen & Unwin",
+  "ma_loai": 1,
+  "hinh": "img-03.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2b9"
+  },
+  "isbn": "0-993-433-3",
+  "ma_sach": "STK004",
+  "ten_sach": "The Lord of the Rings : Return of the King",
+  "tac_gia": "J.R.R Tolken",
+  "nha_xuat_ban_id": "SUP004",
+  "don_gia": 621000,
+  "nam_xuat_ban": 2014,
+  "nha_xuat_ban": "Allen & Unwin",
+  "ma_loai": 1,
+  "hinh": "img-04.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2ba"
+  },
+  "isbn": "0-293-333-6",
+  "ma_sach": "STK005",
+  "ten_sach": "The Castle of Dark",
+  "tac_gia": "Tanith Lee",
+  "nha_xuat_ban_id": "SUP005",
+  "don_gia": 621000,
+  "nam_xuat_ban": 1987,
+  "nha_xuat_ban": "Macmilla",
+  "ma_loai": 1,
+  "hinh": "img-05.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2bb"
+  },
+  "isbn": "0-023-179-4",
+  "ma_sach": "STK006",
+  "ten_sach": "The Winter Players",
+  "tac_gia": "Tanith Lee",
+  "nha_xuat_ban_id": "SUP006",
+  "don_gia": 621000,
+  "nam_xuat_ban": 1977,
+  "nha_xuat_ban": "Macmilla",
+  "ma_loai": 1,
+  "hinh": "img-06.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2bc"
+  },
+  "isbn": "0-023-179-3",
+  "ma_sach": "STK007",
+  "ten_sach": "Tarzan and the forbidden city",
+  "tac_gia": "Edgar Rice Burroughs",
+  "nha_xuat_ban_id": "SUP007",
+  "don_gia": 600300,
+  "nam_xuat_ban": 1914,
+  "nha_xuat_ban": "New English Library",
+  "ma_loai": 2,
+  "hinh": "img-07.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2bd"
+  },
+  "isbn": "0-113-139-6",
+  "ma_sach": "STK008",
+  "ten_sach": "Tarzan of the Apes",
+  "tac_gia": "Edgar Rice Burroughs",
+  "nha_xuat_ban_id": "SUP008",
+  "don_gia": 414000,
+  "nam_xuat_ban": 1999,
+  "nha_xuat_ban": "New English Library",
+  "ma_loai": 2,
+  "hinh": "img-08.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2be"
+  },
+  "isbn": "0-444-139-6",
+  "ma_sach": "STK009",
+  "ten_sach": "The Gemini Contenders",
+  "tac_gia": "Robert Ludlum",
+  "nha_xuat_ban_id": "SUP009",
+  "don_gia": 455400,
+  "nam_xuat_ban": 2009,
+  "nha_xuat_ban": "Dial Press",
+  "ma_loai": 2,
+  "hinh": "img-09.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2bf"
+  },
+  "isbn": "0-433-439-6",
+  "ma_sach": "STK010",
+  "ten_sach": "Chancellor Manuscript",
+  "tac_gia": "Robert Ludlum",
+  "nha_xuat_ban_id": "SUP010",
+  "don_gia": 621000,
+  "nam_xuat_ban": 1999,
+  "nha_xuat_ban": "Dial Press",
+  "ma_loai": 2,
+  "hinh": "img-10.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c0"
+  },
+  "isbn": "0-430-131-6",
+  "ma_sach": "STK011",
+  "ten_sach": "Dragon Flight",
+  "tac_gia": "James Clavel",
+  "nha_xuat_ban_id": "SUP011",
+  "don_gia": 351072,
+  "nam_xuat_ban": 2007,
+  "nha_xuat_ban": "Atheneum",
+  "ma_loai": 3,
+  "hinh": "img-11.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c1"
+  },
+  "isbn": "0-410-121-1",
+  "ma_sach": "STK012",
+  "ten_sach": "Summer Return",
+  "tac_gia": "Venessa Walters",
+  "nha_xuat_ban_id": "SUP012",
+  "don_gia": 351900,
+  "nam_xuat_ban": 2016,
+  "nha_xuat_ban": "Penguin",
+  "ma_loai": 4,
+  "hinh": "img-12.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c2"
+  },
+  "isbn": "0-230-166-1",
+  "ma_sach": "STK013",
+  "ten_sach": "Tale of the Thief",
+  "tac_gia": "Anne Rice",
+  "nha_xuat_ban_id": "SUP013",
+  "don_gia": 558900,
+  "nam_xuat_ban": 2016,
+  "nha_xuat_ban": "Penguin",
+  "ma_loai": 5,
+  "hinh": "img-03.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c3"
+  },
+  "isbn": "0-090-881-1",
+  "ma_sach": "STK014",
+  "ten_sach": "Prince and the Pauper",
+  "tac_gia": "Mark Stevenson",
+  "nha_xuat_ban_id": "SUP014",
+  "don_gia": 476100,
+  "nam_xuat_ban": 2011,
+  "nha_xuat_ban": "American Pushlishing Co",
+  "ma_loai": 6,
+  "hinh": "img-04.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c4"
+  },
+  "isbn": "0-22-121-1",
+  "ma_sach": "STK015",
+  "ten_sach": "Alien",
+  "tac_gia": "Ribbly Scott",
+  "nha_xuat_ban_id": "SUP015",
+  "don_gia": 434700,
+  "nam_xuat_ban": 1996,
+  "nha_xuat_ban": "Morpheus",
+  "ma_loai": 3,
+  "hinh": "img-05.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c5"
+  },
+  "isbn": "0-413-331-1",
+  "ma_sach": "STK016",
+  "ten_sach": "Gone Girl",
+  "tac_gia": "James Clavell",
+  "nha_xuat_ban_id": "SUP016",
+  "don_gia": 621000,
+  "nam_xuat_ban": 2015,
+  "nha_xuat_ban": "Paramount",
+  "ma_loai": 2,
+  "hinh": "img-06.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c6"
+  },
+  "isbn": "9-330-121-1",
+  "ma_sach": "STK017",
+  "ten_sach": "All the Missing Girls",
+  "tac_gia": "Megan Miranda",
+  "nha_xuat_ban_id": "SUP017",
+  "don_gia": 621000,
+  "nam_xuat_ban": 2016,
+  "nha_xuat_ban": "H & R",
+  "ma_loai": 2,
+  "hinh": "img-07.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c7"
+  },
+  "isbn": "0-410-9921-1",
+  "ma_sach": "STK018",
+  "ten_sach": "Empire of Storms",
+  "tac_gia": "Sarah Mass",
+  "nha_xuat_ban_id": "SUP018",
+  "don_gia": 600300,
+  "nam_xuat_ban": 2006,
+  "nha_xuat_ban": "Pearson Plc",
+  "ma_loai": 1,
+  "hinh": "img-08.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c8"
+  },
+  "isbn": "0-413-121-1",
+  "ma_sach": "STK019",
+  "ten_sach": "Hillbilly Elegy",
+  "tac_gia": "J.D Vance",
+  "nha_xuat_ban_id": "SUP019",
+  "don_gia": 414000,
+  "nam_xuat_ban": 2012,
+  "nha_xuat_ban": "Wiley publisher",
+  "ma_loai": 7,
+  "hinh": "img-09.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2c9"
+  },
+  "isbn": "0-310-331-1",
+  "ma_sach": "STK020",
+  "ten_sach": "The Fire Man",
+  "tac_gia": "Joe Hill",
+  "nha_xuat_ban_id": "SUP019",
+  "don_gia": 455400,
+  "nam_xuat_ban": 2016,
+  "nha_xuat_ban": "Scholastic",
+  "ma_loai": 1,
+  "hinh": "img-10.jpg"
+},{
+  "_id": {
+    "$oid": "628c80b2d14e01642d02e2ca"
+  },
+  "isbn": "5-110-121-1",
+  "ma_sach": "STK021",
+  "ten_sach": "Night School",
+  "tac_gia": "Lee Child",
+  "nha_xuat_ban_id": "SUP020",
+  "don_gia": 621000,
+  "nam_xuat_ban": 2015,
+  "nha_xuat_ban": "Pearson publisher",
+  "ma_loai": 2,
+  "hinh": "img-11.jpg"
+}]
