@@ -7,16 +7,17 @@ import LoadingData from "../utilities/loading_data";
 function ChinhSuaSach() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý dữ liệu tải dữ liệu sách
   useEffect(() => {
     async function fetchData() {
-      const fetchSach = await axios.get("http://localhost:8081/sach/all");
+      const fetchSach = await axios.get(server_url+"/sach/all");
       setData(fetchSach.data);
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [server_url]);
 
   // Xử lý khi người dùng xóa dữ liệu sách
   const handleDelete = (event) => {
@@ -24,7 +25,7 @@ function ChinhSuaSach() {
     let ma_sach = event.target.getAttribute("data-masach");
     async function deleteData() {
       await axios
-        .delete("http://localhost:8081/sach/" + ma_sach)
+        .delete(server_url+"/sach/" + ma_sach)
         .then((res) => {
           alert(`Đã xóa ${res.data.deletedCount} sách thành công`);
           window.location.reload();

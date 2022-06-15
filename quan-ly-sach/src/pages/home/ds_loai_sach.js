@@ -7,14 +7,15 @@ import LoadingData from "../utilities/loading_data";
 function DanhSachLoaiSach() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý lấy dữ liệu
   useEffect(() => {
-    axios.get("http://localhost:8081/loai-sach").then((res) => {
+    axios.get(server_url+"/loai-sach").then((res) => {
       setData(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [server_url]);
 
   const ds_loai_sach = data;
   const location = useLocation();

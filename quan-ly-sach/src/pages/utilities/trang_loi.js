@@ -10,6 +10,7 @@ function Error() {
       <p className="text-center"><Link to="/" className="btn btn-link text-success">Quay trở lại trang chủ</Link></p>
       <Footer />
     </div>
+    
   )
 }
 

@@ -11,6 +11,7 @@ function GioHang() {
   const [loadingData, setLoadingData] = useState(true);
   const [loadingValue, setLoading] = useState(0);
   const [sach_checked, setSachChecked] = useState([]);
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   //Xử lý dữ liệu lấy dữ liệu sách và dữ liệu giỏ hàng
   useEffect(() => {
@@ -20,14 +21,14 @@ function GioHang() {
         username: user_info.username,
         password: user_info.password,
       };
-      let sach_get = await axios.get("http://localhost:8081/sach/all");
+      let sach_get = await axios.get(server_url+"/sach/all");
       let user_res = await axios.post(
-        "http://localhost:8081/dangnhap",
+        server_url+"/dangnhap",
         user_req
       );
       if (user_res.data.length > 0) {
         let ds_sach_dat = user_res.data[0].cart;
-        setChiTietGH(
+         setChiTietGH(
           ds_sach_dat.map((sach_dat) => {
             let sach_info = sach_get.data.find(
               (sach) => sach.ma_sach === sach_dat.ma_sach
@@ -37,11 +38,11 @@ function GioHang() {
         );
       } else {
         alert("Lỗi khi truy cập. Xin hãy đăng xuất và đăng nhập lại");
-      }
-      setLoadingData(false);
+      }  
     }
     getData();
-  }, [loadingValue]);
+    setLoadingData(false);
+  }, [loadingValue, server_url]);
 
 
   // Xử lý khi người dùng chọn sách lưu toàn bộ sách được checked
@@ -68,7 +69,7 @@ function GioHang() {
     };
 
     let res = await axios
-      .delete("http://localhost:8081/giohang", {
+      .delete(server_url+"/giohang", {
         data: user_input,
       })
       .catch((error) => {
@@ -105,9 +106,9 @@ function GioHang() {
 
       let hinh_sach;
       try {
-        hinh_sach = "http://localhost:8081/img/" + sach.hinh;
+        hinh_sach = server_url+"/img/" + sach.hinh;
       } catch (error) {
-        hinh_sach = "http://localhost:8081/img/img-default.jpg";
+        hinh_sach = server_url+"/img/img-default.jpg";
       }
 
       // Cập nhật lại thành tiền cho từng sách khi người dùng thay đổi số lượng
@@ -123,7 +124,7 @@ function GioHang() {
         };
 
         await axios
-          .put("http://localhost:8081/giohang", user_input)
+          .put(server_url+"/giohang", user_input)
           .then((res) => {
             setUpdateCart(true);
             setLoading(loadingValue + 1);

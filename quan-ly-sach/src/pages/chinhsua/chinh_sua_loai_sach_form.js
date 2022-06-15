@@ -12,6 +12,7 @@ function ChinhSuaLoaiSachForm() {
   const location = useLocation();
   const navigate = useNavigate();
   const thong_tin = ["ma_loai", "ten_loai"];
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
    // Xử lý lấy dữ liệu loại sách
   useEffect(() => {
@@ -28,13 +29,13 @@ function ChinhSuaLoaiSachForm() {
       });
     }
     async function getData() {
-      let res = await axios.get("http://localhost:8081/loai-sach");
+      let res = await axios.get(server_url+"/loai-sach");
       setUserInputs({ ma_loai: res.data.length + 1, ten_loai: "" });
       setLoading(false);
     }
     if (location.state === null) getData();
     else setLoading(false);
-  }, [location.state]);
+  }, [location.state, server_url]);
 
   // Xử lý khi người dùng điền form
   const onChangeHandler = useCallback(
@@ -61,7 +62,7 @@ function ChinhSuaLoaiSachForm() {
     await axios
       .request({
         method: method_http,
-        url: "http://localhost:8081/loai-sach",
+        url: server_url+"/loai-sach",
         data: user_input,
       })
       .then((res) => {

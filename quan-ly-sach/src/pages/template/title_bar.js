@@ -8,6 +8,7 @@ import { faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 function TitleBar(props) {
   const [SLGioHang, setSLGioHang] = useState(0);
   const navigate = useNavigate();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý khi tìm kiếm sách
   const handleSubmit = (event) => {
@@ -26,7 +27,7 @@ function TitleBar(props) {
           password: user_info.password,
         };
         let user_res = await axios.post(
-          "http://localhost:8081/dangnhap",
+          server_url+"/dangnhap",
           user_req
         );
         if (user_res.data.length > 0) {
@@ -38,7 +39,7 @@ function TitleBar(props) {
       }
     };
     getSLGioHang();
-  }, [props]);
+  }, [props, server_url]);
 
   // Hiển thị menu giỏ hàng chỉ khi đã đăng nhập
   const hien_thi_gio_hang =
@@ -62,7 +63,7 @@ function TitleBar(props) {
           to="/"
         >
           <img
-            src="http://localhost:8081/logo/favicon-32x32.png"
+            src={server_url+"/logo/favicon-32x32.png"}
             alt="logo"
             className="px-2"
           ></img>

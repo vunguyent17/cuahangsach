@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 
 function DangKy() {
+  const server_url = process.env.REACT_APP_SERVER_URI;
   const initialValues = {
     username: "",
     password: "",
@@ -28,7 +29,7 @@ function DangKy() {
     let user_input = userInputs;
     console.log(user_input);
     axios
-      .post("http://localhost:8081/dangky", user_input)
+      .post(server_url+"/dangky", user_input)
       .then((res) => {
         console.log(res.data);
         alert("Đăng ký thành công");

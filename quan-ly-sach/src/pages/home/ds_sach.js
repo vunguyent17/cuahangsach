@@ -9,18 +9,19 @@ function DanhSachSach(props) {
   const [ds_loai_sach, setDSLoaiSach] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const location = useLocation();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý lấy dữ liệu
   useEffect(() => {
     async function fetchData() {
-      const fetchLoaiSach = await axios.get("http://localhost:8081/loai-sach/");
+      const fetchLoaiSach = await axios.get(server_url+"/loai-sach/");
       let fetchSach;
       if (location.state == null) {
-        fetchSach = await axios.get("http://localhost:8081/sach/all");
+        fetchSach = await axios.get(server_url+"/sach/all");
       } else {
         const { ma_loai } = location.state;
         fetchSach = await axios.get(
-          "http://localhost:8081/sach/loai/" + ma_loai
+          server_url+"/sach/loai/" + ma_loai
         );
       }
       setDSLoaiSach(fetchLoaiSach.data);
@@ -28,7 +29,7 @@ function DanhSachSach(props) {
       setLoading(false);
     }
     fetchData();
-  }, [location.state]);
+  }, [location.state, server_url]);
 
   const ds_sach_theo_loai = data;
   let ten_loai = "";

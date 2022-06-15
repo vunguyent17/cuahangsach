@@ -8,13 +8,14 @@ function DangNhap() {
   const [password_input, setPassword] = useState("");
   const [, setUserLogin] = useState();
   const navigate = useNavigate();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   //Xử lý đăng nhập
   const handleSubmit = async (event) => {
     event.preventDefault();
     let user_input = { username: username_input, password: password_input };
     await axios
-      .post("http://localhost:8081/dangnhap", user_input)
+      .post(server_url+"/dangnhap", user_input)
       .then((res) => {
         if (res.data.length > 0) {
           alert("Đăng nhập thành công")
@@ -27,7 +28,6 @@ function DangNhap() {
           localStorage.setItem("ch_sach_dang_nhap", JSON.stringify(user_info));
           setUserLogin(user_info);
           navigate("/");
-          window.location.reload()
         } else {
           alert("Xin hãy đăng nhập lại");
         }

@@ -10,18 +10,19 @@ function TimKiem() {
   const [ds_sach, setDSSach] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const location = useLocation();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   const tu_khoa = location.state.tu_khoa;
 
   // Xử lý dữ liệu
   useEffect(() => {
     let ds_sach_get = async () => {
-      let res = await axios.get("http://localhost:8081/timkiem/" + tu_khoa);
+      let res = await axios.get(server_url+"/timkiem/" + tu_khoa);
       setDSSach(res.data);
       setLoading(false);
     };
     ds_sach_get();
-  }, [tu_khoa]);
+  }, [tu_khoa, server_url]);
 
   // Trả về client
   return (

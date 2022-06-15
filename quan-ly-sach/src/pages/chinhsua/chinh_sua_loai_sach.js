@@ -7,14 +7,15 @@ import LoadingData from "../utilities/loading_data";
 function ChinhSuaLoaiSach() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý lấy dữ liệu loại sách
   useEffect(() => {
-    axios.get("http://localhost:8081/loai-sach").then((res) => {
+    axios.get(server_url+"/loai-sach").then((res) => {
       setData(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [server_url]);
 
   // Xử lý khi xóa một loại sách
   const handleDelete = (event) => {
@@ -22,7 +23,7 @@ function ChinhSuaLoaiSach() {
     let ma_loai = event.target.getAttribute("data-maloai");
     async function deleteData() {
       await axios
-        .delete("http://localhost:8081/loai-sach/" + ma_loai)
+        .delete(server_url+"/loai-sach/" + ma_loai)
         .then((res) => {
           alert(res.data);
           window.location.reload();

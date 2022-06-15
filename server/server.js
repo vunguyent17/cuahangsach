@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 let http = require("http");
 let express = require("express");
 let cors = require("cors");
@@ -8,7 +10,7 @@ const publicDirectoryPath = path.join(__dirname, "/public");
 app.use(express.static(publicDirectoryPath));
 
 let MongoClient = require("mongodb").MongoClient;
-let url = "mongodb://localhost:27017";
+let url = process.env.MONGODB_URI;
 app.use(cors());
 app.get("/", function (req, res) {
   res.send("Chào các bạn");
@@ -327,7 +329,7 @@ app.post("/hoadon", async (req, res) => {
   res.send(kq_hoa_don);
 });
 
-let server = app.listen(8081, function () {
+let server = app.listen(process.env.PORT || 8081, function () {
   let host = server.address().address;
   let port = server.address().port;
 

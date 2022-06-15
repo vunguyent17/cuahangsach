@@ -18,19 +18,20 @@ function ChiTietSach() {
   const [ds_loai_sach, setDSLoaiSach] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const location = useLocation();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Xử lý dữ liệu: lấy dữ liệu sách và loại sách
   useEffect(() => {
     async function getData() {
-      let res_loai_sach = await axios.get("http://localhost:8081/loai-sach/");
+      let res_loai_sach = await axios.get(server_url+"/loai-sach/");
       setDSLoaiSach(res_loai_sach.data);
       const { ma_sach } = location.state;
-      let res_sach = await axios.get("http://localhost:8081/sach/" + ma_sach);
+      let res_sach = await axios.get(server_url+"/sach/" + ma_sach);
       setSach(res_sach.data);
       setLoading(false);
     }
     getData();
-  }, [location.state]);
+  }, [location.state, server_url]);
 
   // Xử lý khi người dùng thêm sách vào giỏ hàng
   const handleAddCart = async (event) => {
@@ -41,7 +42,7 @@ function ChiTietSach() {
       so_luong: parseInt(document.getElementById("soluong").value),
     };
     await axios
-      .put("http://localhost:8081/giohang", user_input)
+      .put(server_url+"/giohang", user_input)
       .then((res) => {
         setUpdateCart(true);
         alert(res.data);
@@ -72,9 +73,9 @@ function ChiTietSach() {
 
     let hinh_sach;
     try {
-      hinh_sach = "http://localhost:8081/img/" + sach.hinh;
+      hinh_sach = server_url+"/img/" + sach.hinh;
     } catch (error) {
-      hinh_sach = "http://localhost:8081/img/img-default.jpg";
+      hinh_sach = server_url+"/img/img-default.jpg";
     }
 
     return (

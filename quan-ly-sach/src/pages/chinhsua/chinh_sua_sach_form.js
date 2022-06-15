@@ -10,6 +10,7 @@ function ChinhSuaSachForm() {
   const location = useLocation();
   const [userInputs, setUserInputs] = useState({});
   const navigate = useNavigate();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Gán dữ liệu sách được nhận nếu có (trường hợp sử dữ liệu sách)
   useEffect(() => {
@@ -77,8 +78,8 @@ function ChinhSuaSachForm() {
     let method_http = location.state === null ? "post" : "put";
     let url_http =
       location.state === null
-        ? "http://localhost:8081/sach"
-        : "http://localhost:8081/sach/" + userInputs.ma_sach;
+        ? server_url+"/sach"
+        : server_url+"/sach/" + userInputs.ma_sach;
     let thong_bao =
       location.state === null ? "Đã thêm sách mới" : "Đã cập nhật sách";
 
@@ -107,7 +108,7 @@ function ChinhSuaSachForm() {
     console.log(imagefile);
     console.log(formData.get("image"));
     axios
-      .post(`http://localhost:8081/sach/upload-anh`, formData, {
+      .post(`https://cua-hang-sach-server.herokuapp.com/sach/upload-anh`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -159,7 +160,7 @@ function ChinhSuaSachForm() {
   }
 
   function loadPhotoType() {
-    loadURLToInputFiled("http://localhost:8081/public/img/" + userInputs.hinh);
+    loadURLToInputFiled(server_url+"/public/img/" + userInputs.hinh);
   }
 
   function loadURLToInputFiled(url) {

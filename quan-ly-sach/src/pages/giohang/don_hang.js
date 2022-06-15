@@ -12,6 +12,7 @@ function DonHang() {
   const location = useLocation();
   const { ds_sach_dat } = location.state;
   let navigate = useNavigate();
+  const server_url = process.env.REACT_APP_SERVER_URI;
 
   // Hien thi input dia chi dat hang
   const initialValues = {
@@ -64,9 +65,9 @@ function DonHang() {
         username: user_info.username,
         password: user_info.password,
       };
-      let sach_get = await axios.get("http://localhost:8081/sach/all");
+      let sach_get = await axios.get(server_url+"/sach/all");
       let user_res = await axios.post(
-        "http://localhost:8081/dangnhap",
+        server_url+"/dangnhap",
         user_req
       );
       if (user_res.data.length === 0) {
@@ -86,7 +87,7 @@ function DonHang() {
       setLoading(false);
     }
     getData();
-  }, [ds_sach_dat]);
+  }, [ds_sach_dat, server_url]);
 
   if (isLoading === false) {
     tong_tien = chi_tiet_don_hang.reduce(
@@ -141,7 +142,7 @@ function DonHang() {
       tong_tien: tong_tien,
     };
     await axios
-      .post("http://localhost:8081/hoadon", don_hang)
+      .post(server_url+"/hoadon", don_hang)
       .then((res) => {
         alert("Đã thêm hóa đơn mới");
       })
@@ -157,7 +158,7 @@ function DonHang() {
 
     // Xóa các sản phẩm đã đặt hàng ra khỏi giỏ hàng
     await axios
-      .delete("http://localhost:8081/giohang", {data: user_info})
+      .delete(server_url+"/giohang", {data: user_info})
       .then((res) => {
         console.log(res.data);
       })
