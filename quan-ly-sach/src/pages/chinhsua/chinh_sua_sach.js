@@ -57,7 +57,7 @@ function ChinhSuaSach() {
         <td className="text-nowrap">
           <Link
             to="sach/form"
-            state={{ prev_data: sach }}
+            state={{ prev_data: sach, title: "Sửa thông tin sách" }}
             className="btn btn-primary btn-sm "
             role="button"
           >
@@ -84,7 +84,7 @@ function ChinhSuaSach() {
         <div className="col-12">
           <h2 className="text-secondary fs-3">Chỉnh sửa thông tin sách</h2>
           <hr></hr>
-          <Link to="sach/form" className="btn btn-primary">
+          <Link to="sach/form" className="btn btn-primary" state={{title: "Thêm thông tin sách mới"}}>
             + Thêm sách
           </Link>
           {isLoading ? (

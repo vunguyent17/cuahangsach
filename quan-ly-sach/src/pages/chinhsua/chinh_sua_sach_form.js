@@ -14,7 +14,7 @@ function ChinhSuaSachForm() {
 
   // Gán dữ liệu sách được nhận nếu có (trường hợp sử dữ liệu sách)
   useEffect(() => {
-    if (location.state === null) {
+    if (location.state.prev_data === undefined) {
       setUserInputs({
         isbn: "",
         ma_sach: "",
@@ -75,13 +75,13 @@ function ChinhSuaSachForm() {
 
 
     // - Thêm sách mới hoặc cập nhật sách vào db
-    let method_http = location.state === null ? "post" : "put";
+    let method_http = location.state.prev_data === undefined ? "post" : "put";
     let url_http =
-      location.state === null
+      location.state.prev_data === undefined
         ? server_url+"/sach"
         : server_url+"/sach/" + userInputs.ma_sach;
     let thong_bao =
-      location.state === null ? "Đã thêm sách mới" : "Đã cập nhật sách";
+      location.state.prev_data === undefined ? "Đã thêm sách mới" : "Đã cập nhật sách";
 
     await axios
       .request({
@@ -92,7 +92,7 @@ function ChinhSuaSachForm() {
       .then((res) => {
         alert(thong_bao);
         console.log(res.data);
-        if (location.state !== null) {
+        if (location.state.prev_data !== undefined) {
           navigate("/chinhsua");
         } else window.location.reload();
       })
@@ -108,7 +108,7 @@ function ChinhSuaSachForm() {
     console.log(imagefile);
     console.log(formData.get("image"));
     axios
-      .post(`https://cua-hang-sach-server.herokuapp.com/sach/upload-anh`, formData, {
+      .post(server_url+`/sach/upload-anh`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -153,7 +153,7 @@ function ChinhSuaSachForm() {
   // Xử lý đưa file lên phần input file và hiển thị ảnh sách trong form
   if (document.readyState === "complete") {
     // Document already fully loaded
-    if (location.state !== null) loadPhotoType();
+    if (location.state.prev_data !== undefined) loadPhotoType();
   } else {
     // Add event listener for DOMContentLoaded (fires when document is fully loaded)
     document.addEventListener("DOMContentLoaded", loadPhotoType);
@@ -205,7 +205,7 @@ function ChinhSuaSachForm() {
     <div className="container-fluid">
       <Header />
       <div className="container w-50 my-3">
-        <h1 className="text-success my-3 text-center">Chỉnh sửa sách</h1>
+        <h1 className="text-success my-3 text-center">{location.state.title}</h1>
         <div className="col-12">
           <form
             className="row g-3"

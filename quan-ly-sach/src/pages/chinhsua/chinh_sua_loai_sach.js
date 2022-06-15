@@ -50,7 +50,7 @@ function ChinhSuaLoaiSach() {
           <div className="float-end">
             <Link
               to="/chinhsua/loaisach/form"
-              state={{ prev_data: loai_sach }}
+              state={{ prev_data: loai_sach, title: "Sửa thông tin loại sách" }}
               className="btn btn-primary btn-sm mx-2"
               role="button"
             >
@@ -82,6 +82,7 @@ function ChinhSuaLoaiSach() {
           <Link
             to="/chinhsua/loaisach/form"
             className="btn btn-primary "
+            state={{title: "Thêm thông tin loại sách mới"}}
             role="button"
           >
             + Thêm loại sách

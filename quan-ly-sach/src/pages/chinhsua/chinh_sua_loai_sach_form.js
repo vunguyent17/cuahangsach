@@ -16,7 +16,7 @@ function ChinhSuaLoaiSachForm() {
 
    // Xử lý lấy dữ liệu loại sách
   useEffect(() => {
-    if (location.state === null) {
+    if (location.state.prev_data === undefined) {
       setUserInputs({
         ma_loai: 0,
         ten_loai: "",
@@ -33,7 +33,7 @@ function ChinhSuaLoaiSachForm() {
       setUserInputs({ ma_loai: res.data.length + 1, ten_loai: "" });
       setLoading(false);
     }
-    if (location.state === null) getData();
+    if (location.state.prev_data === undefined) getData();
     else setLoading(false);
   }, [location.state, server_url]);
 
@@ -53,9 +53,9 @@ function ChinhSuaLoaiSachForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let user_input = userInputs;
-    let method_http = location.state === null ? "post" : "put";
+    let method_http = location.state.prev_data === undefined ? "post" : "put";
     let thong_bao =
-      location.state === null
+      location.state.prev_data === undefined
         ? "Đã thêm loại sách mới"
         : "Đã cập nhật loại sách";
 
@@ -68,7 +68,7 @@ function ChinhSuaLoaiSachForm() {
       .then((res) => {
         alert(thong_bao);
         console.log(res.data);
-        if (location.state !== null) {
+        if (location.state.prev_data !== undefined) {
           navigate("/chinhsua");
         } else window.location.reload();
       })
@@ -92,7 +92,7 @@ function ChinhSuaLoaiSachForm() {
           id={tt}
           defaultValue={defaultValue}
           onChange={onChangeHandler}
-          disabled={location.state !== null && tt === "ma_loai" ? true : false}
+          disabled={location.state.prev_data !== undefined && tt === "ma_loai" ? true : false}
           required
         ></input>
       </div>
@@ -104,7 +104,7 @@ function ChinhSuaLoaiSachForm() {
     <div className="container-fluid">
       <Header />
       <div className="container w-50 my-3">
-        <h1 className="text-success my-3 text-center">Chỉnh sửa loại sách</h1>
+        <h1 className="text-success my-3 text-center">{location.state.title}</h1>
         <div className="col-12">
           {isLoading ? (
             <div className="text-center">
