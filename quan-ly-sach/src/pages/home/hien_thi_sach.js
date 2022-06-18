@@ -47,10 +47,10 @@ function HienThiSach(props) {
   let hien_thi_sach = () => {
     return props.ds_sach.map((sach) => {
       let hinh_sach;
-      try {
-        hinh_sach = server_url+"/img/" + sach.hinh;
-      } catch (error) {
+      if ( sach.hinh===""){
         hinh_sach = server_url+"/img/img-default.jpg";
+      } else {
+        hinh_sach = server_url+"/img/" + sach.hinh;
       }
       return (
         <div key={sach.ma_sach} className="col">

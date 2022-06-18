@@ -72,10 +72,10 @@ function ChiTietSach() {
     ));
 
     let hinh_sach;
-    try {
-      hinh_sach = server_url+"/img/" + sach.hinh;
-    } catch (error) {
+    if ( sach.hinh===""){
       hinh_sach = server_url+"/img/img-default.jpg";
+    } else {
+      hinh_sach = server_url+"/img/" + sach.hinh;
     }
 
     return (

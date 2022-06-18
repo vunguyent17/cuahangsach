@@ -151,7 +151,7 @@ function ChinhSuaSachForm() {
 
 
   // Xử lý đưa file lên phần input file và hiển thị ảnh sách trong form
-  if (document.readyState === "complete") {
+  if (document.readyState === "complete" && userInputs.hinh !== "") {
     // Document already fully loaded
     if (location.state.prev_data !== undefined) loadPhotoType();
   } else {
