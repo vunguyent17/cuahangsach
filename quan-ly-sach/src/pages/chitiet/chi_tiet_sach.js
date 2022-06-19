@@ -36,11 +36,12 @@ function ChiTietSach() {
   // Xử lý khi người dùng thêm sách vào giỏ hàng
   const handleAddCart = async (event) => {
     event.preventDefault();
+    let data_masach = event.target.getAttribute("data-masach")
     let user_input = {
       username: JSON.parse(localStorage.getItem("ch_sach_dang_nhap")).username,
-      ma_sach: event.target.getAttribute("data-masach"),
+      ma_sach: data_masach,
       so_luong: parseInt(document.getElementById("soluong").value),
-    };
+    };    
     await axios
       .put(server_url+"/giohang", user_input)
       .then((res) => {

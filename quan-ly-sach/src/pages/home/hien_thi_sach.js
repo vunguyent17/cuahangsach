@@ -24,10 +24,12 @@ function HienThiSach(props) {
   const handleAddCart = async (event) => {
     event.preventDefault();
     try {
+      let data_masach = event.currentTarget.getAttribute("data-masach")
       let user_input = {
-        username: JSON.parse(localStorage.getItem("ch_sach_dang_nhap")).username,
-        ma_sach: event.target.getAttribute("data-masach"),
+        username: await JSON.parse(localStorage.getItem("ch_sach_dang_nhap")).username,
+        ma_sach: data_masach,
       };
+      
       await axios
         .put(server_url+"/giohang", user_input)
         .then((res) => {
@@ -39,6 +41,7 @@ function HienThiSach(props) {
           console.error("There was a error!", error);
         });
     } catch (error) {
+      console.log(error)
       alert("Bạn phải đăng nhập mới có thể thêm sách vào giỏ hàng")
     }
   };

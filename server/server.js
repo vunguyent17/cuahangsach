@@ -253,6 +253,10 @@ app.put("/giohang", async (req, res) => {
   let username_find = req.body.username;
   let ma_sach_add = req.body.ma_sach;
   let so_luong_add = req.body.so_luong;
+  if (ma_sach_add=== null || so_luong_add === null){
+    res.send("Không thể cập nhật giỏ hàng. Xin hãy thử lại")
+    return;
+  }
   let result = "";
   const client = await MongoClient.connect(url);
   const ql_sach_db = client.db("quan_ly_sach");
