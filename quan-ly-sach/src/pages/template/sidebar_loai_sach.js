@@ -2,6 +2,8 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import DanhSachLoaiSach from "../home/ds_loai_sach";
 import { useState } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function SidebarLoaiSach() {
   const [show, setShow] = useState(false);
@@ -12,7 +14,7 @@ function SidebarLoaiSach() {
   return (
     <>
       <Button variant="success" onClick={handleShow}>
-        Danh mục sách
+        <FontAwesomeIcon className="mx-2" icon={faBars} /> Danh mục sách
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>

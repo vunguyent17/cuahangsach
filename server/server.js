@@ -131,7 +131,7 @@ app.delete("/sach/:masach", async (req, res) => {
   const sach = await sach_collect.find(query).toArray();
   try {
     unlink(
-      "E:/UNIVERSITY/2022-05-14_KTPhatTrienHeThongWeb/Final/server/public/img/" +
+      "./public/img/" +
         sach[0].hinh,
       (err) => {
         if (err) console.log(err);
@@ -211,7 +211,7 @@ app.put("/sach/:ma_sach", async (req, res) => {
   if (sach_cu[0].hinh !== data.hinh) {
     try {
       unlink(
-        "E:/UNIVERSITY/2022-05-14_KTPhatTrienHeThongWeb/Final/server/public/img/" +
+        "./public/img/" +
           sach_cu[0].hinh,
         (err) => {
           if (err) console.log(err);

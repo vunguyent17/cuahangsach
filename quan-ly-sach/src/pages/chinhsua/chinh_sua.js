@@ -5,6 +5,8 @@ import { useState } from "react";
 import ChinhSuaSach from "./chinh_sua_sach";
 import ChinhSuaLoaiSach from "./chinh_sua_loai_sach";
 import Footer from "../template/footer";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function ChinhSua() {
   const [show, setShow] = useState(false);
@@ -21,7 +23,7 @@ function ChinhSua() {
       <h2 className="text-secondary fs-3">Chỉnh sửa danh mục sách</h2>
       <hr></hr>
       <Button variant="success" className = "my-3" onClick={handleShow}>
-        Chỉnh sửa danh mục sách
+       <FontAwesomeIcon className="mx-2" icon={faBars} />Chỉnh sửa danh mục sách
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
