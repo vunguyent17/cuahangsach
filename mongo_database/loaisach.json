@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8723"
+  },
+  "ma_loai": 1,
+  "ten_loai": "Tiểu thuyết hư cấu"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8724"
+  },
+  "ma_loai": 2,
+  "ten_loai": "Phiêu lưu / Kịch tính"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8725"
+  },
+  "ma_loai": 3,
+  "ten_loai": "Khoa học viễn tưởng"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8726"
+  },
+  "ma_loai": 4,
+  "ten_loai": "Lãng mạn"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8727"
+  },
+  "ma_loai": 5,
+  "ten_loai": "Kinh dị"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8728"
+  },
+  "ma_loai": 6,
+  "ten_loai": "Sách trẻ em"
+},{
+  "_id": {
+    "$oid": "63e3ea2a4b2e749c462d8729"
+  },
+  "ma_loai": 7,
+  "ten_loai": "Tự truyện / Hồi ký"
+}]

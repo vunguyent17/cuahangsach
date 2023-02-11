@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "63e4d606feb4e390a25b399d"
+  },
+  "username": "vunguyen",
+  "ngay_dat": "9/2/2023",
+  "thoi_gian_dat": "18:16:22",
+  "dia_chi": {
+    "thanh_pho": "TPHCM",
+    "duong": "Võ Văn Ngân",
+    "so_nha": "12",
+    "ten_nguoi_nhan": "Vũ Nguyễn",
+    "so_dien_thoai": "0123456789"
+  },
+  "chi_tiet_don_hang": [
+    {
+      "ma_sach": "STK002",
+      "so_luong": 3,
+      "_id": "628c80b2d14e01642d02e2b7",
+      "isbn": "0-3113-443-4",
+      "ten_sach": "The Lord of the Rings : Fellowship of the ring",
+      "tac_gia": "J.R.R Tolken",
+      "nha_xuat_ban_id": "SUP002",
+      "don_gia": 558900,
+      "nam_xuat_ban": 2000,
+      "nha_xuat_ban": "Allen & Unwin",
+      "ma_loai": 1,
+      "hinh": "img-02.jpg"
+    },
+    {
+      "ma_sach": "STK004",
+      "so_luong": 2,
+      "_id": "628c80b2d14e01642d02e2b9",
+      "isbn": "0-993-433-3",
+      "ten_sach": "The Lord of the Rings : Return of the King",
+      "tac_gia": "J.R.R Tolken",
+      "nha_xuat_ban_id": "SUP004",
+      "don_gia": 621000,
+      "nam_xuat_ban": 2014,
+      "nha_xuat_ban": "Allen & Unwin",
+      "ma_loai": 1,
+      "hinh": "img-04.jpg"
+    }
+  ],
+  "tong_tien": 2918700
+}]

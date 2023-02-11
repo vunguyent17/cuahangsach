@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "6288815e4b0cb68eb162fd3c"
+  },
+  "username": "vunguyen",
+  "password": "$2a$10$2evPqWzrTX7Q6tcA6Qi1RORkX21EvxlshfQIw4wvHNczkchwxKmNm",
+  "fullname": "Vũ Nguyễn",
+  "email": "vunt@gmail.com",
+  "cart": [
+    {
+      "ma_sach": "STK005",
+      "so_luong": 1
+    },
+    {
+      "ma_sach": "STK012",
+      "so_luong": 3
+    },
+    {
+      "ma_sach": "STK003",
+      "so_luong": 5
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "629880dd788a1d1146e02766"
+  },
+  "username": "admin",
+  "password": "$2a$10$wEncgGq7afuvFINFfbef9OxGSfeKxy7VrArPMgrhYDRYS/44sSpV.",
+  "fullname": "Admin",
+  "email": "admin@cuahangsach.vn",
+  "cart": [
+    {
+      "ma_sach": "STK001",
+      "so_luong": 4
+    },
+    {
+      "ma_sach": "STK004",
+      "so_luong": 3
+    },
+    {
+      "ma_sach": "STK002",
+      "so_luong": 1
+    },
+    {
+      "ma_sach": "STK003",
+      "so_luong": 1
+    },
+    {
+      "ma_sach": "STK005",
+      "so_luong": 3
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63e3ef6001c2ea29a73f309f"
+  },
+  "username": "nguyenle",
+  "password": "$2b$10$P0h5Ug8d9jhFx1ohFZkhxuwSU3ZoEt33nm/oudKtFNWCCzllHwcVi",
+  "fullname": "Lê Nguyên",
+  "email": "nguyenle@gmail.com",
+  "cart": []
+},{
+  "_id": {
+    "$oid": "63e4cc1e983543d27ebee294"
+  },
+  "username": "hungnguyen",
+  "password": "$2b$10$2PT/PXvnqgT9BDwrrY.b4u/Jk51Ypas4xxNEDN1lgrh4Yj8lXvXta",
+  "fullname": "Hung Nguyen",
+  "email": "hungnguyen@gmail.com",
+  "cart": [
+    {
+      "ma_sach": "STK003",
+      "so_luong": 2
+    }
+  ]
+}]
