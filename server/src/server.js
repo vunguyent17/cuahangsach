@@ -226,15 +226,16 @@ app.post("/sach", async (req, res) => {
   res.send(kq_sach);
 });
 
-// Thêm người dùng mới vào db
+// Cập nhật dữ liệu sách
 app.put("/sach/:ma_sach", async (req, res) => {
   const data = SanitizeObj(req.body);
   const client = await MongoClient.connect(url);
   const ql_sach_db = client.db("quan_ly_sach");
   let sach_collect = ql_sach_db.collection("sach");
   let query = { ma_sach: sanitize(req.params.ma_sach) };
+  console.log(query);
   const sach_cu = await sach_collect.find(query).toArray();
-  if (sach_cu[0].hinh !== data.hinh) {
+  if (sach_cu && sach_cu[0].hinh !== data.hinh) {
     try {
       unlink(
         "./public/img/" +
@@ -247,6 +248,9 @@ app.put("/sach/:ma_sach", async (req, res) => {
     } catch (error) {
       console.log("Xóa không thành công");
     }
+  }
+  else{
+    res.send("Không thể cập nhật");
   }
   const kq_cap_nhat = await sach_collect.updateOne(query, { $set: data });
   res.send(kq_cap_nhat);

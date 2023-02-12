@@ -12,7 +12,7 @@ function Header(props) {
         <TitleBar tu_khoa={props.tu_khoa} setUpdateCart = {props.setUpdateCart} />
       </div>
       <div className="row">
-        <NavBarCHSach />
+        <NavBarCHSach/>
       </div>
     </div>
   );

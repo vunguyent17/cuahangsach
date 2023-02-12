@@ -97,6 +97,8 @@ function ChinhSuaSachForm() {
         ? "Đã thêm sách mới"
         : "Đã cập nhật sách";
 
+    console.log(user_input);
+
     await axios
       .request({
         method: method_http,
@@ -178,6 +180,7 @@ function ChinhSuaSachForm() {
           className="form-control"
           id={tt}
           required
+          disabled={location.state.prev_data !== undefined && tt === "ma_sach" ? true : false}
           onChange={onChangeHandler}
           defaultValue={userInputs[tt]}
         ></input>

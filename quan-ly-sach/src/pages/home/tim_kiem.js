@@ -9,10 +9,12 @@ import HienThiSach from "./hien_thi_sach";
 function TimKiem() {
   const [ds_sach, setDSSach] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [, setUpdateCart] = useState(false);
   const location = useLocation();
   const server_url = process.env.REACT_APP_SERVER_URI;
 
   const tu_khoa = location.state.tu_khoa;
+  console.log(location.props);
 
   // Xử lý dữ liệu
   useEffect(() => {
@@ -27,7 +29,7 @@ function TimKiem() {
   // Trả về client
   return (
     <div className="container-fluid">
-      <Header tu_khoa={tu_khoa} />
+      <Header tu_khoa={tu_khoa} setUpdateCart = {setUpdateCart}/>
       <div className="container py-3">
         <div className="row">
           <p className="fs-2 py-3">
@@ -42,7 +44,7 @@ function TimKiem() {
             Không tìn thấy sách có từ khóa bạn cần tìm :&#40;
           </p>
         ) : (
-          <HienThiSach ds_sach={ds_sach} />
+          <HienThiSach ds_sach={ds_sach} setUpdateCart={setUpdateCart} />
         )}
       </div>
       <Footer />

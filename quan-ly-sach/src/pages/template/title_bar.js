@@ -14,7 +14,7 @@ function TitleBar(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     let input = document.getElementById("tu_khoa_tim_kiem").value;
-    navigate("/timkiem", { state: { tu_khoa: input } });
+    navigate("/timkiem", { state: { tu_khoa: input }});
   };
 
   // Xử lý lấy dữ liệu giỏ hàng của người dùng
