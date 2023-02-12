@@ -233,7 +233,6 @@ app.put("/sach/:ma_sach", async (req, res) => {
   const ql_sach_db = client.db("quan_ly_sach");
   let sach_collect = ql_sach_db.collection("sach");
   let query = { ma_sach: sanitize(req.params.ma_sach) };
-  console.log(query);
   const sach_cu = await sach_collect.find(query).toArray();
   if (sach_cu && sach_cu[0].hinh !== data.hinh) {
     try {
@@ -248,12 +247,13 @@ app.put("/sach/:ma_sach", async (req, res) => {
     } catch (error) {
       console.log("Xóa không thành công");
     }
+    const kq_cap_nhat = await sach_collect.updateOne(query, { $set: data });
+    res.send(kq_cap_nhat);
   }
-  else{
+  else {
     res.send("Không thể cập nhật");
   }
-  const kq_cap_nhat = await sach_collect.updateOne(query, { $set: data });
-  res.send(kq_cap_nhat);
+
 });
 
 // Thêm ảnh mới vào kho lưu trữ trên server
@@ -271,7 +271,7 @@ app.post(
   "/sach/upload-anh",
   upload.single("image"),
   function (req, res) {
-    res.send();
+    res.sendStatus(200);
   },
   (error, req, res, next) => {
     res.status(400).send({ error: error.message });
@@ -378,7 +378,7 @@ let server = app.listen(process.env.PORT || 8081, function () {
   let host = server.address().address;
   let port = server.address().port;
 
-  console.log("Example app listening at http://%s:%s", host, port);
+  console.log(`Example app listening at http://${host}:${port}`);
 });
 
 

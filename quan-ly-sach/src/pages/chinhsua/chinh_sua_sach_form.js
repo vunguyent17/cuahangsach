@@ -86,6 +86,7 @@ function ChinhSuaSachForm() {
     let user_input = userInputs;
     user_input["hinh"] = filename;
 
+
     // - Thêm sách mới hoặc cập nhật sách vào db
     let method_http = location.state.prev_data === undefined ? "post" : "put";
     let url_http =
@@ -95,9 +96,22 @@ function ChinhSuaSachForm() {
     let thong_bao =
       location.state.prev_data === undefined
         ? "Đã thêm sách mới"
-        : "Đã cập nhật sách";
+        : "Đã cập nhật sách"
 
-    console.log(user_input);
+    // - Thêm file ảnh sách vào kho lưu trữ ảnh trên server
+    let imagefile = imageElement.files[0];
+    const formData = new FormData();
+    formData.append("image", imagefile);
+    await axios
+      .post(server_url + `/sach/upload-anh`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((res) => {
+        console.log({ res });
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
 
     await axios
       .request({
@@ -107,31 +121,15 @@ function ChinhSuaSachForm() {
       })
       .then((res) => {
         alert(thong_bao);
-        console.log(res.data);
         if (location.state.prev_data !== undefined) {
           navigate("/chinhsua");
-        } else window.location.reload();
+        } else {
+          window.location.reload();
+        } 
       })
       .catch((error) => {
         alert(`Error: ${error.message}`);
         console.error("There was a error!", error);
-      });
-
-    // - Thêm file ảnh sách vào kho lưu trữ ảnh trên server
-    let imagefile = imageElement.files[0];
-    const formData = new FormData();
-    formData.append("image", imagefile);
-    console.log(imagefile);
-    console.log(formData.get("image"));
-    axios
-      .post(server_url + `/sach/upload-anh`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((res) => {
-        console.log({ res });
-      })
-      .catch((err) => {
-        console.error({ err });
       });
   };
 
