@@ -13,7 +13,7 @@ function DangNhap() {
   const disableButton = () => {
     let btnLogin = document.getElementById("btnLogin");
     btnLogin.disabled = true;
-    btnLogin.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang đăng nhập ...';
+    btnLogin.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang xử lý...';
   }
   //Xử lý đăng nhập
   const handleSubmit = async (event) => {
@@ -36,6 +36,7 @@ function DangNhap() {
           navigate("/");
         } else {
           alert("Xin hãy đăng nhập lại");
+          window.location.reload();
         }
       })
       .catch((error) => {
