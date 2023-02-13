@@ -9,7 +9,7 @@ import LoadingData from "../utilities/loading_data";
 function GioHang() {
   const [, setUpdateCart] = useState(false);
   const [chi_tiet_gio_hang, setChiTietGH] = useState([]);
-  const [loadingPage, setLoadingPage] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
   const [loadingQuantity, setLoadingQuantity] = useState(-1);
   const [sach_checked, setSachChecked] = useState([]);
   const server_url = process.env.REACT_APP_SERVER_URI;
