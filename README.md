@@ -32,7 +32,7 @@ Cửa Hàng Sách Website is a web application that allows users to browse and f
 
 
 ## Demo
-[Link video demo](https://drive.google.com/file/d/1vV2XNrZGiNiWDmMBy9Fykitx100hVQzC/view?usp=sharing)
+[Link video demo](https://drive.google.com/file/d/1CPeXM-KrIgxk5_Hl1L76cXSQAfOE3wlH/view?usp=sharing)
 <br/>
 [Link website](https://cuahangsach.netlify.app/)
 
