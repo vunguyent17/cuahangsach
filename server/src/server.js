@@ -177,15 +177,16 @@ app.post("/dangnhap", async (req, res) => {
         .compare(password, kq_user[0].password)
         .then(_auth_res => {
           auth_res = _auth_res;
-          console.log(auth_res);
         })
         .catch(err => console.error(err.message))
     if (!auth_res)
     {
       kq_user = [];
+    }
+    else{
+      kq_user[0].password = password;
     } 
   }
-  console.log(kq_user);
   res.send(kq_user);
 });
 

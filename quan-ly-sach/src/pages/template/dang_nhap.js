@@ -24,7 +24,7 @@ function DangNhap(props) {
       .post(server_url+"/dangnhap", user_input)
       .then((res) => {
         if (res.data.length > 0) {
-          alert("Đăng nhập thành công")
+          alert("Đăng nhập thành công") 
           let user_data = res.data;
           let user_info = (({ username, password, fullname }) => ({
             username,
@@ -33,7 +33,7 @@ function DangNhap(props) {
           }))(user_data[0]);
           localStorage.setItem("ch_sach_dang_nhap", JSON.stringify(user_info));
           setUserLogin(user_info);
-          props.setUpdateCart();
+          props.setUpdateCart(true);
           navigate("/");
         } else {
           alert("Xin hãy đăng nhập lại");

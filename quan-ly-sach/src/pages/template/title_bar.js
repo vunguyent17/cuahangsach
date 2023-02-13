@@ -33,7 +33,9 @@ function TitleBar(props) {
         if (user_res.data.length > 0) {
           setSLGioHang(user_res.data[0].cart.length);
           if (props.setUpdateCart !== undefined) props.setUpdateCart(false);
-        } else {
+        } 
+        if (user_res.status !== 200)
+        {
           alert("Lỗi khi truy cập. Xin hãy đăng xuất và đăng nhập lại");
         }
       }
