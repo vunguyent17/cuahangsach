@@ -1,6 +1,6 @@
 import Header from "../template/header";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import axios from "axios";
 import LoadingPage from "../utilities/loading_page";
@@ -9,14 +9,13 @@ import LoadingData from "../utilities/loading_data";
 function GioHang() {
   const [, setUpdateCart] = useState(false);
   const [chi_tiet_gio_hang, setChiTietGH] = useState([]);
-  const [loadingPage, setLoadingPage] = useState(true);
+  const [loadingPage, setLoadingPage] = useState(false);
   const [loadingQuantity, setLoadingQuantity] = useState(-1);
   const [sach_checked, setSachChecked] = useState([]);
   const server_url = process.env.REACT_APP_SERVER_URI;
 
   //Xử lý dữ liệu lấy dữ liệu sách và dữ liệu giỏ hàng
-  useEffect(() => {
-    setLoadingPage(true);
+  const getCartFromUser = useCallback(() => {
     async function getData() {
       let user_info = JSON.parse(localStorage.getItem("ch_sach_dang_nhap"));
       let user_req = {
@@ -30,6 +29,7 @@ function GioHang() {
       );
       if (user_res.data.length > 0) {
         let ds_sach_dat = user_res.data[0].cart;
+        console.log("dsadadasdasd");
          setChiTietGH(
           ds_sach_dat.map((sach_dat) => {
             let sach_info = sach_get.data.find(
@@ -38,13 +38,20 @@ function GioHang() {
             return Object.assign(sach_dat, sach_info);
           })
         );
+        
       } else {
         alert("Lỗi khi truy cập. Xin hãy đăng xuất và đăng nhập lại");
       }  
     }
+    setLoadingPage(true);
     getData();
     setLoadingPage(false);
-  }, [server_url]);
+    }, [server_url]);
+
+
+  useEffect(() => {
+    getCartFromUser();
+  }, [getCartFromUser]);
 
 
   // Xử lý khi người dùng chọn sách lưu toàn bộ sách được checked
@@ -65,7 +72,6 @@ function GioHang() {
   // Xử lý khi người dùng xóa sách ra khỏi giỏ hàng: xóa dữ liệu bên db
   const handleDelete = async (event) => {
     event.preventDefault();
-    setLoadingPage(true);
     let user_input = {
       username: JSON.parse(localStorage.getItem("ch_sach_dang_nhap")).username,
       ma_sach: event.currentTarget.getAttribute("data-masach"),
@@ -80,8 +86,9 @@ function GioHang() {
         console.error("There was a error!", error);
       });
     alert("Đã xóa " + res.data.modifiedCount + " sản phẩm ra khỏi giỏ hàng");
+    
+    getCartFromUser();
     setUpdateCart(true);
-    setLoadingPage(false);
     setSachChecked(sach_checked.filter((ma_sach_checked) => ma_sach_checked!== user_input.ma_sach))
   };
 
