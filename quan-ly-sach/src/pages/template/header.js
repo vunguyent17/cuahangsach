@@ -6,7 +6,7 @@ function Header(props) {
   return (
     <div className="container-fluid shadow-sm px-0">
       <div className="row">
-        <DangNhap />
+        <DangNhap setUpdateCart = {props.setUpdateCart} />
       </div>
       <div className="row">
         <TitleBar tu_khoa={props.tu_khoa} setUpdateCart = {props.setUpdateCart} />

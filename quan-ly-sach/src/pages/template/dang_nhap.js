@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function DangNhap() {
+function DangNhap(props) {
   const [username_input, setUsername] = useState("");
   const [password_input, setPassword] = useState("");
   const [, setUserLogin] = useState();
@@ -33,6 +33,7 @@ function DangNhap() {
           }))(user_data[0]);
           localStorage.setItem("ch_sach_dang_nhap", JSON.stringify(user_info));
           setUserLogin(user_info);
+          props.setUpdateCart();
           navigate("/");
         } else {
           alert("Xin hãy đăng nhập lại");

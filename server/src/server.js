@@ -177,13 +177,15 @@ app.post("/dangnhap", async (req, res) => {
         .compare(password, kq_user[0].password)
         .then(_auth_res => {
           auth_res = _auth_res;
+          console.log(auth_res);
         })
         .catch(err => console.error(err.message))
     if (!auth_res)
     {
-      kq_user.data = [];
+      kq_user = [];
     } 
   }
+  console.log(kq_user);
   res.send(kq_user);
 });
 
@@ -234,7 +236,7 @@ app.put("/sach/:ma_sach", async (req, res) => {
   let sach_collect = ql_sach_db.collection("sach");
   let query = { ma_sach: sanitize(req.params.ma_sach) };
   const sach_cu = await sach_collect.find(query).toArray();
-  if (sach_cu && sach_cu[0].hinh !== data.hinh) {
+  if (sach_cu.length > 0  && sach_cu[0].hinh !== data.hinh) {
     try {
       unlink(
         "./public/img/" +
@@ -243,17 +245,19 @@ app.put("/sach/:ma_sach", async (req, res) => {
           if (err) console.log(err);
         }
       );
-      console.log("/public/img/" + sach_cu[0].hinh + "đã được xóa");
+      console.log("/public/img/" + sach_cu[0].hinh + " đã được xóa");
     } catch (error) {
-      console.log("Xóa không thành công");
+      console.log("Cập nhật không thành công");
     }
+  }
+  if (sach_cu.length > 0)
+  {
     const kq_cap_nhat = await sach_collect.updateOne(query, { $set: data });
     res.send(kq_cap_nhat);
   }
   else {
     res.send("Không thể cập nhật");
   }
-
 });
 
 // Thêm ảnh mới vào kho lưu trữ trên server
